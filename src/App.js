@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import Footer from './include/Footer';
+import Header from './include/Header';
+import MainPage from './main';
+import ProductPage from './product';
+import { Routes, Route } from 'react-router-dom';
+import Uploadpage from './upload';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* 파일이름으로 부르는 것이 아니라 component 이름을 부르기 */}
+      <Header/>
+      <Routes>
+        <Route path="/" element={<MainPage/>}/>
+        <Route path="/products" element={<ProductPage/>}/>
+        <Route path="/upload" element={<Uploadpage/>}/>
+      </Routes>
+      <Footer/>
     </div>
   );
 }
